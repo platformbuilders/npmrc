@@ -1,5 +1,3 @@
-![check](https://github.com/platformbuilders/npmrc/workflows/check/badge.svg)
-
 # @platformbuilders/npmrc
 
 ## Instalação

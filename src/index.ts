@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import readline from 'readline'
 import os from 'os'
 import fs from 'fs'

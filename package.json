@@ -1,8 +1,7 @@
 {
   "name": "@platformbuilders/npmrc",
-  "version": "1.0.4",
-  "main": "dist/index.js",
-  "bin": "./",
+  "version": "1.0.5",
+  "bin": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.ts",

@@ -23,7 +23,7 @@ const ans = async () => {
     return console.log('Script feito apenas para MacOS. Por favor, aguarde uma próxima versão!')
   }
 
-  await askQuestion(`
+  askQuestion(`
   - Entre nesse site: https://github.com/settings/tokens
   - Crie um token com o escopo de, no mínimo, 'REPO' e 'READ:PACKAGES'
   - Cole o token gerado aqui: `)

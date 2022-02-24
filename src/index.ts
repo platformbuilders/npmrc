@@ -34,7 +34,7 @@ const askQuestion = (query: string) => {
 
 const ans = async () => {
   if (platform !== 'darwin' && platform !== 'linux') {
-    return console.log('Script feito apenas para MacOS. Por favor, aguarde uma próxima versão!')
+    return console.log('Script feito apenas para MacOS e Linux. Por favor, aguarde uma próxima versão!')
   }
 
   askQuestion(`

@@ -3,24 +3,37 @@ import readline from 'readline'
 import os from 'os'
 import fs from 'fs'
 
+const platform = process.platform
+
 const askQuestion = (query: string) => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   })
 
-  const readAnswer = (ans: string) => {
+  const readAnswerDarwin = (ans: string) => {
     const data = `@platformbuilders:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=${ans}\n`
     fs.appendFileSync(`/Users/${os.userInfo().username}/.npmrc`, data)
     rl.close()
   }
 
-  return rl.question(query, readAnswer)
+  const readAnswerLinux = (ans: string) => {
+    const data = `@platformbuilders:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=${ans}\n`
+    fs.appendFileSync(`/home/${os.userInfo().username}/.npmrc`, data)
+    rl.close()
+  }
+
+  switch (platform) {
+    case 'darwin':
+      return rl.question(query, readAnswerDarwin)
+
+    case 'linux':
+      return rl.question(query, readAnswerLinux)
+  }
 }
 
 const ans = async () => {
-  const platform = process.platform
-  if (platform !== 'darwin') {
+  if (platform !== 'darwin' && platform !== 'linux') {
     return console.log('Script feito apenas para MacOS. Por favor, aguarde uma próxima versão!')
   }
 

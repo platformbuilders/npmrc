@@ -23,13 +23,12 @@ const askQuestion = (query: string) => {
     rl.close()
   }
 
-  switch (platform) {
-    case 'darwin':
-      return rl.question(query, readAnswerDarwin)
-
-    case 'linux':
-      return rl.question(query, readAnswerLinux)
+  const readByPlatform = {
+    darwin: rl.question(query, readAnswerDarwin),
+    linux: rl.question(query, readAnswerLinux)
   }
+
+  return readByPlatform[platform]
 }
 
 const ans = async () => {

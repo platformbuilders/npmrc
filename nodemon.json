@@ -3,5 +3,6 @@
   "execMap": {
     "ts": "sucrase-node src/index.ts"
   },
-  "ext": "ts"
+  "ext": "ts",
+  "stdin": false
 }
